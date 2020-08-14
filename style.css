@@ -1,0 +1,292 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ddeefc;
+  font-family: "lato", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  padding: 40px 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos generales de la tarjeta */
+.card {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  color: #fff;
+  transition: 0.3s ease;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  /* backface-visibility: hidden; */
+  cursor: pointer;
+  z-index: 2;
+}
+
+.card.active {
+  transform: rotateY(180deg);
+}
+
+.card>div {
+  padding: 30px;
+  border-radius: 15px;
+  min-height: 315px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+
+/* Tarjeta delantera */
+.front-view {
+  width: 100%;
+  background: url(./img/bg-tarjeta/bg-tarjeta-02.jpg);
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.logo-brand {
+  text-align: right;
+  min-height: 50px;
+}
+
+.logo-brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 80px;
+}
+
+.chip {
+  width: 100%;
+  max-width: 50px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 16px;
+  color: #7d8994;
+  margin-bottom: 5px;
+}
+
+.number, .name, .flexbox.expiration {
+  color: #fff;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Tarjeta trasera */
+.back-view {
+  width: 100%;
+  background: url(./img/bg-tarjeta/bg-tarjeta-01.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  transform: rotateY(180deg);
+  /* backface-visibility: hidden; */
+}
+
+.magnetic-bar {
+  height: 40px;
+  width: 100%;
+  background-color: #3d3d3d;
+  position: absolute;
+  left: 0;
+}
+
+.back-view .data {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.datos p {
+  margin-bottom: 5px;
+}
+
+#firm {
+  width: 70%;
+}
+
+.firm {
+  height: 40px;
+  background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.firm p {
+  line-height: 40px;
+  font-family: 'Liu Jian Mao Cao', cursive;
+  color: black;
+  font-size: 30px;
+  padding: 0 10px;
+  text-transform: capitalize;
+}
+
+#ccv {
+  width: 20%;
+}
+
+.back-view .ccv {
+  height: 40px;
+  background: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+.legend {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.bank-link {
+  font-size: 14px;
+  color: white;
+}
+
+/* Contenedor del botón */
+.open-form-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: #2364d2;
+  color: white;
+  position: relative;
+  top: -25px;
+  z-index: 3;
+  border-radius: 100%;
+  box-shadow: 5px 4px 8px rgba(24, 56, 182, .4);
+  padding: 5px;
+  transition: .2s ease;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.open-form-btn:hover {
+  background-color: #1850b1;
+}
+
+.open-form-btn.active {
+  transform: rotate(45deg);
+}
+
+/* Formulario */
+.card-form{
+  height: 0;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  padding: 150px 30px 30px 30px;
+  max-width: 700px;
+  border-radius: 10px;
+  position: relative;
+  top: -150px;
+  clip-path: polygon(0 0,100% 0,100% 0, 0 0);
+  transition: .3s ease-out;
+}
+
+.card-form.active{
+  height: min-content;
+  clip-path: polygon(0 0, 100% 0, 100% 100%,0 100%);
+}
+
+.card-form label{
+  display: block;
+  color: #7d8994;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.card-form input,
+.card-form select,
+.send-btn{
+  border: 2px solid #ced6e0;
+  font-size: 18px;
+  height: 50px;
+  width: 100%;
+  padding: 5px 12px;
+  transition: .3s ease;
+}
+
+.card-form input:hover,
+.card-form select:hover{
+  border-color: #93bded;
+}
+
+.card-form input:focus,
+.card-form select:focus{
+  outline: rgb(4,4,4);
+  box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.card-form input{
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.form-flex,.expiration-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-flex .expiration{
+  width: 100%;
+}
+
+.form-flex .ccv{
+  min-width: 100px;
+}
+
+.select-group{
+  width: 100%;
+  margin-right: 15px;
+  position: relative;
+}
+
+.card-form select{
+  -webkit-appearance: none;
+}
+
+.select-group i{
+  position: absolute;
+  color: #ced6e0;
+  top: 18px;
+  right: 15px;
+  transition: .3s ease;
+}
+
+.select-group:hover i{
+  color: #93bfed;
+}
+
+.send-btn{
+  border: none;
+  padding: 10px;
+  font-size: 22px;
+  color: #fff;
+  background-color: #2364d2;
+  box-shadow: 2px 2px 10px 0 rgba(0,85,212,.4);
+  cursor: pointer;
+}
+
+.send-btn:hover{
+  background-color: #1850b1;
+}
